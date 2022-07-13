@@ -1,3 +1,12 @@
+---
+name: Bug report
+about: Create a report to help us improve
+title: "{[branch_num | task_num]} error name"
+labels: bug
+assignees: ''
+
+---
+
 **오류 기술(Describe The Bug)**
 
 - 기술1
