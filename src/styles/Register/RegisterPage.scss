@@ -1,0 +1,14 @@
+$navy: #384B60;
+
+#row-wrapper {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#nickname-submit {
+    font-size: 1rem;
+    background-color: $navy;
+    border-color: $navy;
+}
