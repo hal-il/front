@@ -1,4 +1,5 @@
 import "styles/Register/RegisterPage.scss";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -6,14 +7,16 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import logo from "assets/images/logo.png";
+
 import { useState } from "react";
+
+import { getNickNameDuplicated } from "api/register";
 
 // 닉네임 정규식
 const regexp = /^[가-힣|A-Z|a-z|0-9|]{2,15}$/;
 
 function RegisterPage() {
   const [nickNameInput, setNickNameInput] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isNickNameOK, setIsNickNameOK] = useState(true);
   const [activeButton, setActiveButton] = useState({
     disabled: true,
@@ -21,28 +24,37 @@ function RegisterPage() {
 
   // 닉네임 입력 유효성 검사
   function checkNicknameInput(newNickName) {
+    if (!isNickNameOK) {
+      setIsNickNameOK(true);
+    }
+
     const regTestResult = regexp.test(newNickName);
+    const newActiveButton = {};
     if (regTestResult) {
       setNickNameInput(newNickName);
-      setActiveButton({ disabled: false });
+      newActiveButton.disabled = false;
     } else {
-      setActiveButton({ disabled: true });
+      newActiveButton.disabled = true;
     }
+    setActiveButton(newActiveButton);
   }
 
   // 닉네임 버튼 핸들러
   function submitNickname(e) {
     e.preventDefault();
-    if (!isSubmitted) {
-      setIsSubmitted(true);
-    }
+
+    getNickNameDuplicated(nickNameInput, (response) => {
+      if(!response.data.completed) {
+        setIsNickNameOK(false);
+      }
+    });
   }
 
   return (
     <Container id="row-wrapper">
       <Row id="cols-wrapper" className="justify-content-center">
         <Col sm="12" md="12" lg="6" style={{ textAlign: "center" }}>
-          <img src={logo} width="450" height="400" />
+          <img src={logo} width="450" height="400" alt="logo" />
         </Col>
         <Col
           sm="10"
@@ -70,7 +82,7 @@ function RegisterPage() {
               </Button>
             </InputGroup>
           </Form>
-          {!isSubmitted && !isNickNameOK && (
+          {!isNickNameOK && (
             <div id="nickname-warning">* 사용 중인 닉네임입니다.</div>
           )}
         </Col>
