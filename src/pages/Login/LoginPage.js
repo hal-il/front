@@ -8,10 +8,6 @@ import Col from 'react-bootstrap/Col';
 import axios from 'axios';
 
 function LoginPage() {
-    const handleClickSignin = () => {
-        console.log("click");
-    }
-
     return (
       <Container className='login-wrapper'>
         <Row>
