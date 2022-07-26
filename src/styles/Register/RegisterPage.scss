@@ -1,26 +1,26 @@
-$navy: #384B60;
+$navy: #384b60;
 
 #row-wrapper {
-    max-width: 992px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  max-width: 992px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 #nickname-title {
-    font-weight: 700;
+  font-weight: 700;
 }
 
 #nickname-submit {
-    color: white;
-    font-size: 1rem;
-    background-color: $navy;
-    border-color: $navy;
+  color: white;
+  font-size: 1rem;
+  background-color: $navy;
+  border-color: $navy;
 }
 
 #nickname-warning {
-    color: red;
-    font-size: 0.8rem;
-    font-weight: 600;
+  color: red;
+  font-size: 1rem;
+  font-weight: 600;
 }

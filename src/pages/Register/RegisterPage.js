@@ -12,22 +12,30 @@ import { useState } from "react";
 const regexp = /^[가-힣|A-Z|a-z|0-9|]{2,15}$/;
 
 function RegisterPage() {
-  let [nickNameInput, setNickNameInput] = useState("");
+  const [nickNameInput, setNickNameInput] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isNickNameOK, setIsNickNameOK] = useState(true);
+  const [activeButton, setActiveButton] = useState({
+    disabled: true,
+  });
 
   // 닉네임 입력 유효성 검사
-  function checkNicknameInput() {
-    const regTestResult = regexp.test(nickNameInput);
-    if(regTestResult) {
-      console.log("true");
-    }
-    else {
-      console.log("false");
+  function checkNicknameInput(newNickName) {
+    const regTestResult = regexp.test(newNickName);
+    if (regTestResult) {
+      setNickNameInput(newNickName);
+      setActiveButton({ disabled: false });
+    } else {
+      setActiveButton({ disabled: true });
     }
   }
 
   // 닉네임 버튼 핸들러
   function submitNickname(e) {
     e.preventDefault();
+    if (!isSubmitted) {
+      setIsSubmitted(true);
+    }
   }
 
   return (
@@ -50,20 +58,21 @@ function RegisterPage() {
             <InputGroup className="mt-2 mb-2">
               <Form.Control
                 aria-describedby="nickname-input"
-                onChange={(e) => setNickNameInput(e.target.value)}
-                onKeyUp={checkNicknameInput}
+                onChange={(e) => checkNicknameInput(e.target.value)}
               />
               <Button
                 id="nickname-submit"
                 type="submit"
                 onClick={submitNickname}
-                disabled
+                {...activeButton}
               >
                 시작하기
               </Button>
             </InputGroup>
           </Form>
-          <div id="nickname-warning">* 사용 중인 닉네임입니다.</div>
+          {!isSubmitted && !isNickNameOK && (
+            <div id="nickname-warning">* 사용 중인 닉네임입니다.</div>
+          )}
         </Col>
       </Row>
     </Container>
