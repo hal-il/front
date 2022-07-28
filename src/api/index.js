@@ -1,10 +1,9 @@
 import axios from "axios";
-import { API_BASE_URL } from "config";
 
 // axios 객체 생성
 function getApiInstance() {
   const instance = axios.create({
-    baseURL: API_BASE_URL,
+    baseURL: "http://localhost:3000/api",
     headers: {
       "Content-type": "application/json",
     },

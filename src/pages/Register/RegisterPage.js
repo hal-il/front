@@ -42,11 +42,14 @@ function RegisterPage() {
   // 닉네임 버튼 핸들러
   function submitNickname(e) {
     e.preventDefault();
+    
+    const info = {
+      email: "halil",
+      nickName: nickNameInput,
+    };
 
-    getNickNameDuplicated(nickNameInput, (response) => {
-      if(!response.data.completed) {
-        setIsNickNameOK(false);
-      }
+    getNickNameDuplicated(info, (response) => {
+      console.log(response.data);
     });
   }
 
