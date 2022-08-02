@@ -1,16 +1,28 @@
-import { GOOGLE_AUTH_URL } from 'components/Login/GoogleAuth.js';
-import GoogleSigninLightNormal from 'assets/images/btn_google_signin_light_normal_web@2x.png'
+import { login } from "api/login";
+import GoogleSigninLightNormal from "assets/images/btn_google_signin_light_normal_web@2x.png";
+import axios from "axios";
 
 function GoogleButton() {
-	return (
-		<div className='google-login'>
-			<a href={GOOGLE_AUTH_URL}>
-				<img
-					className='google-login__button'
-					src={GoogleSigninLightNormal} />
-			</a>
-		</div>
-	)
+  const handleClickButton = () => {
+    login(
+      (res) => {
+        console.log(res);
+        window.location.href = res.request.responseURL;
+      },
+      (err) => console.log(err)
+    );
+  };
+  return (
+    <div className="google-login">
+      {/* <a href="http://localhost:8080/login-form/google"> */}
+      <img
+        className="google-login__button"
+        src={GoogleSigninLightNormal}
+        onClick={handleClickButton}
+      />
+      {/* </a> */}
+    </div>
+  );
 }
 
 export default GoogleButton;
