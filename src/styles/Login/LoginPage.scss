@@ -1,4 +1,4 @@
-@import '../common/utils';
+@import "../common/utils";
 
 .login-wrapper {
   height: 100vh;
@@ -14,7 +14,7 @@
     }
 
     @include tablet() {
-       width: 500px;
+      width: 500px;
     }
 
     @include desktop() {
@@ -27,5 +27,6 @@
   &__button {
     width: 60%;
     margin-bottom: 2rem;
+    cursor: pointer;
   }
 }
