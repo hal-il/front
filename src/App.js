@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 import LoginPage from "./pages/Login/LoginPage";
@@ -10,8 +9,15 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route exact path="/" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage />} />
           <Route path="/oauth/google" element={<GoogleRedirectHandler />} />
+          <Route path="/register" />
+          <Route path="/main">
+            <Route path=":userId" />
+          </Route>
+          <Route path="/profile">
+            <Route path="edit" />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
