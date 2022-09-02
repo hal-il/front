@@ -10,7 +10,7 @@
 
   &__logo {
     @include mobile() {
-      width: 450px;
+      width: 400px;
     }
 
     @include tablet() {
@@ -26,7 +26,11 @@
 .google-login {
   &__button {
     width: 60%;
-    margin-bottom: 2rem;
     cursor: pointer;
+    margin-bottom: 1rem;
+
+    @include mobile() {
+      margin-bottom: 0;
+    }
   }
 }
