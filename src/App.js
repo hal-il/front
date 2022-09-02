@@ -1,9 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
-import LoginPage from './pages/Login/LoginPage';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import GoogleRedirectHandler from 'components/Login/GoogleRedirectHandler';
+import LoginPage from "./pages/Login/LoginPage";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import GoogleRedirectHandler from "components/Login/GoogleRedirectHandler";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<LoginPage />} />
-          <Route path="/oauth/callback" element={<GoogleRedirectHandler />} />
+          <Route path="/oauth/google" element={<GoogleRedirectHandler />} />
         </Routes>
       </BrowserRouter>
     </div>
