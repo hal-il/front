@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import MainPage from "./pages/MainPage";
 
 function App() {
   return (
@@ -8,11 +9,11 @@ function App() {
         <Routes>
           <Route path="/login" />
           <Route path="/register" />
-          <Route path="/main">
+          <Route path="/main" element={<MainPage />}>
             <Route path=":userId" />
           </Route>
           <Route path="/profile">
-            <Route path="/edit" />
+            <Route path="edit" />
           </Route>
         </Routes>
       </BrowserRouter>
