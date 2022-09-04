@@ -12,7 +12,7 @@ function App() {
             <Route path=":userId" />
           </Route>
           <Route path="/profile">
-            <Route path="/edit" />
+            <Route path="edit" />
           </Route>
         </Routes>
       </BrowserRouter>
