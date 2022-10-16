@@ -6,6 +6,7 @@ import { setFriendOpen } from "modules/sidebar";
 import FriendList from "components/common/Header/Friend/FriendList";
 import "styles/Header/Friend.scss";
 import SendReqList from "components/common/Header/Friend/SendReqList";
+import ReceiveReqList from "./ReceiveReqList";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -56,7 +57,7 @@ function Friend() {
           <SendReqList />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          받은 요청
+          <ReceiveReqList />
         </TabPanel>
       </div>
     </Drawer>

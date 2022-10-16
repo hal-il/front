@@ -34,13 +34,11 @@
   }
 }
 
-/* 친구 아이템 */
-.friend-item {
+@mixin default-item {
   display: grid;
-  grid-template-columns: 0.8fr 2fr 1fr;
   align-items: center;
   width: 100%;
-  margin: 0.5rem 0;
+  margin: 0.7rem 0;
 
   &__img {
     img {
@@ -53,19 +51,48 @@
   }
 
   &__name {
-    cursor: pointer;
-    width: fit-content;
+    div {
+      cursor: pointer;
+      width: fit-content;
+      font-weight: 600;
+    }
   }
 
   &__button {
-    button {
-      padding: 0;
-      color: #ff0000;
-      border: 1px solid #ff0000;
+    display: flex;
+    justify-content: center;
+    width: 100%;
 
-      &:hover {
-        background-color: rgba($color: #ff0000, $alpha: 0.05);
-        border: 1px solid #ff0000;
+    &--delete,
+    &--refuse {
+      width: 100%;
+      padding: 0;
+      margin: 0 0.2rem;
+    }
+  }
+}
+
+/* 친구 목록, 보낸 요청 목록 > 친구 아이템 */
+.friend-list,
+.send-req-list {
+  .friend-item {
+    @include default-item();
+
+    grid-template-columns: 1.6fr 6.5fr 1fr;
+  }
+}
+
+.receive-req-list {
+  .friend-item {
+    @include default-item();
+
+    grid-template-columns: 1.6fr 4.5fr 1fr;
+
+    &__button {
+      &--accept {
+        width: 100%;
+        padding: 0;
+        margin: 0 0.2rem;
       }
     }
   }
