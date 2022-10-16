@@ -32,39 +32,40 @@
     color: #717171;
     margin-bottom: 1rem;
   }
+}
 
-  // 친구 목록 아이템
-  .friend-item {
-    display: grid;
-    grid-template-columns: 0.8fr 2fr 1fr;
-    align-items: center;
-    width: 100%;
-    margin: 0.5rem 0;
+/* 친구 아이템 */
+.friend-item {
+  display: grid;
+  grid-template-columns: 0.8fr 2fr 1fr;
+  align-items: center;
+  width: 100%;
+  margin: 0.5rem 0;
 
-    &__img {
-      img {
-        width: 40px;
-        height: 40px;
-        border-radius: 50px;
-        object-fit: cover;
-        cursor: pointer;
-      }
-    }
-
-    &__name {
+  &__img {
+    img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50px;
+      object-fit: cover;
       cursor: pointer;
-      width: fit-content;
     }
+  }
 
-    &__button {
-      button {
-        padding: 0;
-        color: #ff0000;
+  &__name {
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  &__button {
+    button {
+      padding: 0;
+      color: #ff0000;
+      border: 1px solid #ff0000;
+
+      &:hover {
+        background-color: rgba($color: #ff0000, $alpha: 0.05);
         border: 1px solid #ff0000;
-
-        &:hover {
-          background-color: rgba($color: #ff0000, $alpha: 0.05);
-        }
       }
     }
   }

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { setFriendOpen } from "modules/sidebar";
 import FriendList from "components/common/Header/Friend/FriendList";
 import "styles/Header/Friend.scss";
+import SendReqList from "components/common/Header/Friend/SendReqList";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -52,10 +53,10 @@ function Friend() {
           <FriendList />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          받은 요청
+          <SendReqList />
         </TabPanel>
         <TabPanel value={value} index={2}>
-          보낸 요청
+          받은 요청
         </TabPanel>
       </div>
     </Drawer>
