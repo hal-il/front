@@ -1,0 +1,39 @@
+/* 헤더 */
+.header {
+  background: #384b60;
+
+  &__icon {
+    svg {
+      color: white;
+    }
+  }
+}
+
+/* 사이드바 전체 */
+.sidebar {
+  margin: 1rem 2rem;
+}
+
+/* 친구 사이드바 */
+.friend {
+  .MuiTabs-root {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #c5c5c5;
+
+    .MuiTabs-indicator {
+      background-color: #fff;
+    }
+
+    .MuiButtonBase-root {
+      padding: 0;
+    }
+
+    .MuiTab-root {
+      font-size: 0.95rem;
+      &.Mui-selected {
+        color: black;
+        font-weight: 800;
+      }
+    }
+  }
+}
