@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 
 import { setFriendOpen } from "modules/sidebar";
+import FriendList from "components/common/Header/Friend/FriendList";
+import "styles/Header/Friend.scss";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -14,7 +16,7 @@ function TabPanel(props) {
       hidden={value !== index}
       {...other}
     >
-      {value === index && <p>{children}</p>}
+      {value === index && <div>{children}</div>}
     </div>
   );
 }
@@ -47,7 +49,7 @@ function Friend() {
           </Tabs>
         </div>
         <TabPanel value={value} index={0}>
-          친구 목록
+          <FriendList />
         </TabPanel>
         <TabPanel value={value} index={1}>
           받은 요청

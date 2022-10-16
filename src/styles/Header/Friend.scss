@@ -1,0 +1,71 @@
+/* 친구 사이드바 */
+.friend {
+  .tabpanel {
+    padding: 1rem 0.5rem;
+  }
+
+  .MuiTabs-root {
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #c5c5c5;
+
+    .MuiTabs-indicator {
+      background-color: #fff;
+    }
+
+    .MuiButtonBase-root {
+      padding: 0;
+    }
+
+    .MuiTab-root {
+      font-size: 0.95rem;
+      &.Mui-selected {
+        color: black;
+        font-weight: 800;
+      }
+    }
+  }
+}
+
+/* 친구 목록 탭 패널 */
+.friend-list {
+  &__total {
+    color: #717171;
+    margin-bottom: 1rem;
+  }
+
+  // 친구 목록 아이템
+  .friend-item {
+    display: grid;
+    grid-template-columns: 0.8fr 2fr 1fr;
+    align-items: center;
+    width: 100%;
+    margin: 0.5rem 0;
+
+    &__img {
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50px;
+        object-fit: cover;
+        cursor: pointer;
+      }
+    }
+
+    &__name {
+      cursor: pointer;
+      width: fit-content;
+    }
+
+    &__button {
+      button {
+        padding: 0;
+        color: #ff0000;
+        border: 1px solid #ff0000;
+
+        &:hover {
+          background-color: rgba($color: #ff0000, $alpha: 0.05);
+        }
+      }
+    }
+  }
+}
